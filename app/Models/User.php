@@ -41,4 +41,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function findMemberByID ($id) {
+
+        $userArray = self::where('id', $id)->first();
+
+        return $userArray;
+    }
 }

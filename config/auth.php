@@ -59,6 +59,8 @@ return [
     |
     */
 
+
+
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
@@ -107,5 +109,8 @@ return [
     */
 
     'password_timeout' => 10800,
+
+
+
 
 ];

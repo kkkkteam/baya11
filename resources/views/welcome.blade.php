@@ -129,7 +129,7 @@
             @endif
 
             <nav>
-                <a href="#first"><i class="far fa-user">First</i></a>
+                <a href="#first"><i class="far fa-user">Master</i></a>
                 <a href="#second"><i class="fas fa-briefcase">Second</i></a>
                 <a href="#third"><i class="far fa-file">Third</i></a>
                 <a href="#fourth"><i class="far fa-address-card">Forth</i></a>
@@ -137,15 +137,17 @@
             
             <div class= 'container'> 
                 <section id= 'first'>
-                    <h1>First</h1>
+                    <h1>{{$master}}</h1>
                 </section>
                 
                 <section id= 'second'>
                     <h1>Second</h1>
+                    <p>{{$happy}}</p>
                 </section>
                 
                 <section id= 'third'>
                     <h1>Third</h1>
+                    <h2><br>{{config('app.key')}}<h2>
                 </section>
                 
                 <section id= 'fourth'>
