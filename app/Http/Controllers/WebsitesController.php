@@ -29,8 +29,38 @@ class WebsitesController extends Controller
         return view('welcome', [
             'name' => 'Kay Ng',
             'happy' => config('app.key'), 
-            'master' => $masterName, 
+            'master' => $masterName,
+            'abc' => 'test name',
         ]);
+
+    }
+
+    public function getNameListApi(Request $request){
+
+        $serach = $request->search;
+
+        if ($search == ''){
+            $names = User::orderby('name')
+                    ->select('id','name')
+                    ->limit(5)
+                    ->get();
+        }else{
+            $names = User::orderby('name')
+            ->select('id','name')
+            ->where('name', 'LIKE', '%' . $search . '%')
+            ->limit(5)
+            ->get();
+        }
+
+        $response = array();
+        foreach($names as $n){
+            $response[] = array(
+                'id' => $n->id,
+                'text' => $n->name,
+            );
+        }
+        // dd($response);
+        return response()->json($response);
 
     }
 
