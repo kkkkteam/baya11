@@ -163,9 +163,7 @@
                         </optgroup>
                     </select> -->
                 <!-- <p><input type="text" id="search_data" placeholder="" autocomplete="off" class="form-control input-lg" /></p> -->
-                <select name="namelist" id="namelist">
-                    <option value=" ">--Select--</option>
-                </select>
+                <select name="namelist" id="namelist" class="select2_chioce" style="width:100px;"></select>
                 </section>
                 
                 <!-- <section id= 'second'>
@@ -185,29 +183,15 @@
         </div>
         <script type="text/javascript">
 
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            // var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            var data = @json($list);
 
             $(document).ready(function(){
 
                 $('#namelist').select2({
-                    ajax:{
-                        url:"{{route('names')}}",
-                        type: 'post',
-                        dataType: 'json',
-                        delay: 250,
-                        data: function(params){
-                            return{
-                                _token: CSRF_TOKEN,
-                                search: params.term
-                            }
-                        },
-                        processResults: function(response){
-                            return{
-                                results: response
-                            }
-                        },
-                        cache: true
-                    }
+                        data: data;
+                        tags:true;
+                        multiple: true,
                 });
 
             });

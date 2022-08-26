@@ -17,5 +17,5 @@ use App\Http\Controllers\WebsitesController;
 */
 
 Route::get('/', 'App\Http\Controllers\WebsitesController@goToLoginPage')->name('html');
-Route::post('/names', 'App\Http\Controllers\WebsitesController@getNameListApi')->name('names');
+
 

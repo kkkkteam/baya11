@@ -25,12 +25,23 @@ class WebsitesController extends Controller
         $master = User::findMemberByID($m);
 
         $masterName = $master->name;
-       
+
+        $list = User::pluck('name')->all();
+
+        $listArray = array();
+
+        foreach($list as $a){
+            $listArray[] = array(
+                'id' => $a,
+                'text'=> $a,
+            );
+        }
+
         return view('welcome', [
             'name' => 'Kay Ng',
             'happy' => config('app.key'), 
             'master' => $masterName,
-            'abc' => 'test name',
+            'list' => $listArray,
         ]);
 
     }
