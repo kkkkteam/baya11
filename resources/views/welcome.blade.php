@@ -27,8 +27,8 @@
 
             :root {
             --primary-color: #D96AA7;
-            --secondary-color: #422C73;
-            --complimentary-color: #88BFB5;
+            /* --secondary-color: #422C73;
+            --complimentary-color: #88BFB5; */
             --contrast-color: #F2E527;
             --light-color: #D2A9D9;
             }
